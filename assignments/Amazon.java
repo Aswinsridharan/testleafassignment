@@ -23,38 +23,24 @@ public class Amazon {
 			Thread.sleep(3000);
 			driver.findElement(By.xpath("//input[@id='nav-search-submit-button']")).click();
 			
-			String firstProductPrice = driver.findElement(By.xpath("//span[@class='a-price-whole']")).getText();
-			System.out.println(firstProductPrice);
+			String ProductPrice = driver.findElement(By.xpath("//span[@class='a-price-whole']")).getText();
+			System.out.println(ProductPrice);
 			
-
 			String Ratings = driver.findElement(By.xpath("//span[@class='a-size-base s-underline-text']")).getText();
-			System.out.println("Number of customer rating"+Ratings);
-			
-//			5. Click the first text link of the first image
+			System.out.println("customer rating"+Ratings);
+	
 			driver.findElement(By.xpath("//h2[contains(@class,'a-color-base s-line-clamp-2')]")).click();
+   
 			
-//			6. Take a screen shot of the product displayed
-			
-//			7. Click 'Add to Cart' button
 			Set<String> Window = driver.getWindowHandles();
 			List<String> childWindow = new ArrayList<String>(Window);
-			
 		    driver.switchTo().window(childWindow.get(1));
 			driver.findElement(By.id("add-to-cart-button")).click();
 			
-//			8. Get the cart subtotal and verify if it is correct.
 			Thread.sleep(3000);
 			String cartTotal = driver.findElement(By.xpath("//span[@id='attach-accessory-cart-subtotal']")).getText();
 			System.out.println(cartTotal);
 			
-//			if(firstProductPrice==finalPrice) {
-//				System.out.println("Price is validated");
-//			}else {
-//				System.out.println("Price is mismatching");
-//			}
-			
-//			9.close the browser
-			//driver.quit();
 		
 		
 	}
